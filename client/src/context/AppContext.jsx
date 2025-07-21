@@ -72,7 +72,6 @@ export const AppProvider = ({ children }) => {
     useEffect(()=>{
         if(user){
             fetchUser();
-            fetchIsAdmin();
             fetchFavoriteMovies();
         }
     },[user])

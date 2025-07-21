@@ -15,17 +15,15 @@ await connectDB();
 
 
 const app = express();
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true
-}));
+app.use(cors());
 
-app.use('/api/stripe',express.raw({type: 'application/json' }),stripeWebhooks);
+
+// Stripe Webhook Route
+app.use('/api/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
+
 app.use(express.json());
 
-app.use(clerkMiddleware({
-  debug: true 
-}));
+app.use(clerkMiddleware());
 
 app.get('/', (req, res) => res.send('Server is Live!'));
 app.use("/api/inngest", serve({ client: inngest, functions }));

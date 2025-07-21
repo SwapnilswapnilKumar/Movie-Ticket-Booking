@@ -9,11 +9,9 @@ import MyBookings from './pages/MyBookings'
 import { Toaster } from 'react-hot-toast'
 import Footer from './components/Footer'
 import { useAppContext } from './context/AppContext'
-import { SignIn } from '@clerk/clerk-react'
 import Loading from './components/Loading'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
-import ClerkSync from './components/ClerkSync'
 
 const App = () => {
   const { user } = useAppContext()
@@ -22,7 +20,6 @@ const App = () => {
   return (
     <>
       <Toaster />
-      <ClerkSync />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

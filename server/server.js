@@ -18,7 +18,6 @@ const app = express();
 app.use(cors());
 
 
-// Stripe Webhook Route
 app.use('/api/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
 
 app.use(express.json());

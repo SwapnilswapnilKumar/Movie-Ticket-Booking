@@ -5,12 +5,18 @@ import timeFormat from '../lib/timeFormat';
 import { dateFormet } from '../lib/dateFormat';
 import { useAppContext } from '../context/AppContext';
 import { Link } from 'react-router-dom';
+import { generateReceiptPDF } from '../lib/generateReceipt';
+
 
 const MyBookings = () => {
 
   const currency = import.meta.env.VITE_CURRENCY;
 
   const { axios, getToken, user, image_base_url } = useAppContext();
+  
+
+  // console.log("user inside MyBookings.jsx: ",user);
+  console.log(user.emailAddresses[0].emailAddress);
 
   const [bookings, setBookings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +70,15 @@ const MyBookings = () => {
             <div className='text-sm'>
               <p><span className='text-gray-400'>Total Tickets:</span> {item.bookedSeats.length}</p>
               <p><span className='text-gray-400'>Seat Number:</span> {item.bookedSeats.join(", ")}</p>
+              <button
+                  onClick={() => generateReceiptPDF(item, user, currency)}
+                  className='bg-gray-800 text-white px-4 py-1.5 rounded-full text-sm mt-2 hover:bg-gray-700'
+                >
+                      Download Receipt
+              </button>
+
             </div>
+            
           </div>
         </div>
       ))}

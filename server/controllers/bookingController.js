@@ -4,7 +4,6 @@ import Show from "../models/Show.js"
 import stripe from 'stripe'
 
 
-// Function to check availability of selected seats for a show
 const checkSeatsAvailability = async (showId, selectedSeats) => {
     try {
         const showData = await Show.findById(showId);
@@ -23,14 +22,13 @@ const checkSeatsAvailability = async (showId, selectedSeats) => {
 }
 
 
-// 
+
 export const createBooking = async (req, res) => {
     try {
         const { userId } = req.auth();
         const { showId, selectedSeats } = req.body;
         const { origin } = req.headers;
 
-        // Check if the seat is available for the selected show
         const isAvailable = await checkSeatsAvailability(showId, selectedSeats);
 
         if(!isAvailable){
@@ -54,10 +52,9 @@ export const createBooking = async (req, res) => {
 
         await showData.save();
 
-        // Stripe Gateway Initialize
+        
         const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY);
 
-        // Creating line items to for Stripe
         const line_items = [{
             price_data: {
                 currency: 'usd',
@@ -77,7 +74,7 @@ export const createBooking = async (req, res) => {
             metadata: {
                 bookingId: booking._id.toString()
             },
-            expires_at: Math.floor(Date.now() /1000) + 30 * 60, // Expires in 30 minutes
+            expires_at: Math.floor(Date.now() /1000) + 30 * 60, 
         })
         
         console.log("Stripe Session URL:", session.url);
@@ -85,7 +82,6 @@ export const createBooking = async (req, res) => {
         booking.paymentLink = session.url;
         await booking.save();
 
-        // Run Inngest Sheduler Function to check payment status after 10 minutes
         await inngest.send({
             name: "app/checkpayment",
             data: {

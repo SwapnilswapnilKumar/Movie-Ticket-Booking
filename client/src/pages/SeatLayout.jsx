@@ -153,12 +153,9 @@ const SeatLayout = () => {
 
         <button
           onClick={bookTickets}
-          disabled={!user || !selectedSeats.length || !selectedTime}
-          className={`mt-12 sm:mt-16 px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium text-white 
-            ${(!user || !selectedSeats.length || !selectedTime)
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] hover:brightness-110'}
-            transition shadow-lg flex items-center gap-2`}
+          className={`cursor-pointer mt-12 sm:mt-16 px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base rounded-full font-medium text-white bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] hover:brightness-110
+            transition shadow-lg flex items-center gap-2 `}
+            
         >
           Proceed to Checkout
           <ArrowRightIcon strokeWidth={3} className="w-4 h-4" />

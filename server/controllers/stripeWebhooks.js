@@ -11,6 +11,7 @@ export const stripeWebhooks = async (request, response) => {
 
     try {
         event = stripeInstance.webhooks.constructEvent(request.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+        console.log("inside first try of stripeWebhooks");
     } catch (error) {
         return response.status(400).send(`Webhook Error: ${error.message}`);
     }
@@ -18,6 +19,7 @@ export const stripeWebhooks = async (request, response) => {
     try {
         switch (event.type) {
             case "payment_intent.succeeded":{
+                console.log("inside payment_itent_succeeded");
                 const paymentIntent = event.data.object;
                 const sessionList = await stripeInstance.checkout.sessions.list({
                     payment_intent: paymentIntent.id
@@ -30,11 +32,13 @@ export const stripeWebhooks = async (request, response) => {
                     isPaid: true,
                     paymentLink: ""
                 })
+                
 
                 await inngest.send({
                     name: 'app/show.booked',
                     data: {bookingId}
                 })
+                console.log("after inngest.send in succeeded");
                 break;
             }
             default:

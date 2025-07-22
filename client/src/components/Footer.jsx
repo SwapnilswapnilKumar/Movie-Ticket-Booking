@@ -41,8 +41,8 @@ const Footer = () => {
           <div>
             <h2 className="font-semibold mb-5 text-gray-900 text-lg">Get in touch</h2>
             <div className="text-sm space-y-2 text-gray-600">
-              <p className="hover:text-blue-500 transition-colors duration-300">+1-234-567-890</p>
-              <p className="hover:text-blue-500 transition-colors duration-300">cinemacloud@gmail.com</p>
+              <p className="hover:text-blue-500 transition-colors duration-300">+91 8000730289</p>
+              <p className="hover:text-blue-500 transition-colors duration-300">cinemacloud2025@gmail.com</p>
             </div>
           </div>
         </div>

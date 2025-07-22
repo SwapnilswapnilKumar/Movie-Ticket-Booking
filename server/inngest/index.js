@@ -4,7 +4,6 @@ import Booking from "../models/Booking.js";
 import Show from "../models/Show.js";
 import sendEmail from "../configs/nodeMailer.js";
 
-// Create a client to send and receive events
 export const inngest = new Inngest({ id: "movie-ticket-booking" });
 
 // Inngest Function to save user data to a database
@@ -98,7 +97,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
                             <strong>Time:</strong> ${new Date(booking.show.showDateTime).toLocaleTimeString('en-US', {timeZone: 'Asia/Kolkata'})}
                         </p>
                         <p>Enjoy the show!</p>
-                        <p>Thanks for booking with us! <br /> - QuickShow Team</p>
+                        <p>Thanks for booking with us! <br /> - Cinemacloud Team</p>
                     </div>`
         })
     }

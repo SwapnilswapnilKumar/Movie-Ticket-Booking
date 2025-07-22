@@ -16,7 +16,7 @@ const MyBookings = () => {
   
 
   // console.log("user inside MyBookings.jsx: ",user);
-  console.log(user.emailAddresses[0].emailAddress);
+  // console.log(user.emailAddresses[0].emailAddress);
 
   const [bookings, setBookings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

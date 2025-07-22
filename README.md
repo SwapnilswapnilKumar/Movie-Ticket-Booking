@@ -75,11 +75,18 @@ Note : To test the payment use these card details :
                 cardholder name: any
                 country or region : any
 
-
+Some glimpses of the project :
                 
+<img width="1907" height="1018" alt="Screenshot 2025-07-22 191008" src="https://github.com/user-attachments/assets/229465e0-6ab4-4315-ab0f-67d58e55fa55" />
 
+<img width="1913" height="975" alt="Screenshot 2025-07-22 191030" src="https://github.com/user-attachments/assets/ad599574-6402-4690-a209-adfcecf7bd71" />
 
+<img width="1915" height="969" alt="Screenshot 2025-07-22 191042" src="https://github.com/user-attachments/assets/1c4a5c0d-7949-4e05-8084-66941dd638c5" />
 
+<img width="1902" height="1018" alt="Screenshot 2025-07-22 191119" src="https://github.com/user-attachments/assets/3369c8b9-d8c0-4c93-b7fc-491001b97e29" />
 
-          
-     
+<img width="1904" height="942" alt="Screenshot 2025-07-22 191428" src="https://github.com/user-attachments/assets/e4f9e4c2-9dce-416f-8df4-f349c2ecb2f3" />
+
+<img width="1907" height="931" alt="Screenshot 2025-07-22 191526" src="https://github.com/user-attachments/assets/069c3054-2400-4e7d-ac19-3f8d634f6879" />
+
+<img width="1910" height="935" alt="Screenshot 2025-07-22 191608" src="https://github.com/user-attachments/assets/6bc2eb0f-f519-4f5a-8e48-c69f544c0237" />

@@ -11,25 +11,14 @@ function ContactUs() {
         <div className="flex items-center space-x-2">
           <span className="font-semibold text-blue-600">Email:</span>
           <a 
-            href="mailto:swapnilkumartailor@gmail.com"  target = "_blank"
+            href="mailto:cinemacloud2025@gmail.com"  target = "_blank"
             className="text-blue-700 underline hover:text-blue-900 transition"
           >
-            swapnilkumartailor@gmail.com
+            cinemacloud2025@gmail.com
           </a>
         </div>
-
-        <div className="flex items-center space-x-2">
-          <span className="font-semibold text-blue-600">LinkedIn:</span>
-          <a 
-            href="https://www.linkedin.com/in/swapnil-8600b723a" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-blue-700 underline hover:text-blue-900 transition"
-          >
-            linkedin.com/in/swapnil-8600b723a
-          </a>
+        
         </div>
-      </div>
     </div>
   );
 }

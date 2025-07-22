@@ -49,7 +49,7 @@ const Footer = () => {
       </div>
 
       <p className="pt-8 text-center text-xs text-gray-400 z-10 relative">
-        © 2025 Cinema Cloud. All Rights Reserved.
+        © 2025 Cinema Cloud developed by Swapnil
       </p>
     </footer>
   )

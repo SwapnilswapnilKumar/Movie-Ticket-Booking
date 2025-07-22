@@ -3,7 +3,6 @@ import { MenuIcon, TicketPlus, XIcon } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { useUser, useClerk, UserButton } from '@clerk/clerk-react'
-import { useAppContext } from '../context/AppContext'
 
 const Navbar = () => {
 
@@ -12,7 +11,6 @@ const Navbar = () => {
   const { openSignIn } = useClerk();
   const navigate = useNavigate();
 
-  const { favoriteMovies } = useAppContext();
 
   return (
     <div className='fixed top-5 left-0 z-50 w-full h-20 flex items-center justify-between px-6 md:px-16 lg:px-36'>
@@ -35,7 +33,7 @@ const Navbar = () => {
       <div className='flex items-center gap-8'>
         {
           !user ? (
-            <button onClick={openSignIn}  className='px-4 py-1 sm:px-7 bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer'>Login</button>
+            <button onClick={openSignIn}  className='bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB]  px-4 py-1 sm:px-7 bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer'>Login</button>
           ) : (
             <UserButton>
               <UserButton.MenuItems>

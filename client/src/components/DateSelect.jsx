@@ -57,7 +57,7 @@ const DateSelect = ({ dateTime, id }) => {
 
           <button
             onClick={onBookHandler}
-            className="mt-6 md:mt-0 px-8 py-3 rounded-full bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-white font-medium shadow-lg hover:brightness-110 transition-all"
+            className="cursor-pointer mt-6 md:mt-0 px-8 py-3 rounded-full bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-white font-medium shadow-lg hover:brightness-110 transition-all"
           >
             Book Now
           </button>

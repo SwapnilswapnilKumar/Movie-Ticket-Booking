@@ -9,17 +9,35 @@ axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const AppContext = createContext();
 
+
 export const AppProvider = ({ children }) => {
 
     const image_base_url = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
 
     const [shows, setShows] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(false);
     
 
     const location = useLocation();
     const navigate = useNavigate();
     const { user } = useUser();
     const { getToken } = useAuth();
+
+    const fetchIsAdmin = async () => {
+            try {
+                const token = await getToken();
+                const { data } = await axios.get('/api/admin/is-admin', {headers: { Authorization: `Bearer ${token}`}});
+    
+                setIsAdmin(data.isAdmin);
+    
+                if(!data.isAdmin && location.pathname.startsWith('/admin')){
+                    navigate('/');
+                    toast.error('You are not authorized to access Admin Dashboard');
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
 
     
 
@@ -52,16 +70,18 @@ export const AppProvider = ({ children }) => {
 
     useEffect(()=>{
         fetchShows();
+        
     },[])
 
     useEffect(()=>{
         if(user){
             fetchUser();
+            fetchIsAdmin();
             
         }
     },[user])
 
-    const value = { axios, user, getToken, navigate, shows,  image_base_url }
+    const value = { axios, user, getToken,fetchIsAdmin,isAdmin, navigate, shows,  image_base_url }
 
     return (
         <AppContext.Provider value={value}>
